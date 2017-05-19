@@ -8,12 +8,13 @@
 	},
 	"dependencies": {
 		"react": "16.0.0-alpha.6",
-		"react-native": "0.44.0"
+		"react-native": "0.44.0",
+		"wd": "^1.2.0"
 	},
 	"devDependencies": {
 		"babel-jest": "20.0.3",
 		"babel-preset-react-native": "1.9.2",
-		"jest": "20.0.3",
+		"jest": "^20.0.3",
 		"react-test-renderer": "16.0.0-alpha.6"
 	},
 	"jest": {
