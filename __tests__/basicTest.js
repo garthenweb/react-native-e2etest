@@ -1,37 +1,30 @@
-import wd from 'wd'
+import wd from 'wd';
 
-let port = 4723
-let driver = wd.promiseChainRemote('localhost', port)
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000
+const port = 4723;
+const driver = wd.promiseChainRemote('localhost', port);
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
 
 const caps = {
-  platformName: "iOS",
-  platformVersion: "10.3",
-  deviceName: "iPhone Simulator",
-  app: "/Users/gantman/Documents/Projects/rn/react-native-e2etest/ios/build/Build/Products/Debug-iphonesimulator/e2etest.app"
-}
+  platformName: 'iOS',
+  platformVersion: '10.3',
+  deviceName: 'iPhone Simulator',
+  app: `${process.cwd()}/ios/build/Build/Products/Release-iphonesimulator/e2etest.app`
+};
 
 describe('Simple Appium Example', () => {
-  let allPassed = true
+  beforeAll(async () => await driver.init(caps));
+  afterAll(async () => await driver.quit());
 
-  // Initialize driver
-  beforeAll(() => {
-    driver.init(caps)
-  })
+  it('finds the button', async () => {
+    expect(await driver.hasElementByName('text1')).toBe(false);
+    expect(await driver.hasElementByName('text2')).toBe(false);
 
-  // Finish after everything is done
-  afterAll(() => {
-    return driver
-      .quit()
-      .finally(() => console.log('After All Called'))
-  })
+    await driver.elementByName('button1').click();
+    expect(await driver.hasElementByName('text1')).toBe(true);
+    expect(await driver.hasElementByName('text2')).toBe(false);
 
-  it('finds the button', () => {
-    return driver
-      .sleep(25000)
-      .elementByName('button1').click()
-      .sleep(2000)
-      .elementByName('button2').click()
-      .sleep(2000)
-  })
-})
+    await driver.elementByName('button2').click();
+    expect(await driver.hasElementByName('text1')).toBe(false);
+    expect(await driver.hasElementByName('text2')).toBe(true);
+  });
+});
