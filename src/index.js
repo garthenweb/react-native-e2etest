@@ -14,7 +14,7 @@ export default class E2ETest extends Component {
     };
   }
 
-  handleButtonClick(buttonName) { 
+  handleButtonClick(buttonName) {
     this.setState({ buttonName });
   }
 
@@ -25,18 +25,18 @@ export default class E2ETest extends Component {
           Welcome to React Native!
         </Text>
         {this.state.buttonName === '1' &&
-          <Text testID="text1" style={styles.instructions}>
+          <Text accessibilityLabel="text1" style={styles.instructions}>
             To get started, edit index.android.js
           </Text>
         }
         {this.state.buttonName === '2' &&
-          <Text testID="text2" style={styles.instructions}>
+          <Text accessibilityLabel="text2" style={styles.instructions}>
             Double tap R on your keyboard to reload,{'\n'}
             Shake or press menu button for dev menu
           </Text>
         }
-        <Button testID="button1" title="1" style={styles.button} onPress={() => this.handleButtonClick('1')} />
-        <Button testID="button2" title="2" style={styles.button} onPress={() => this.handleButtonClick('2')} />
+        <Button accessibilityLabel="button1" title="1" style={styles.button} onPress={() => this.handleButtonClick('1')} />
+        <Button accessibilityLabel="button2" title="2" style={styles.button} onPress={() => this.handleButtonClick('2')} />
       </View>
     );
   }

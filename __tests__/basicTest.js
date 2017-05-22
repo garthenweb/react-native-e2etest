@@ -15,16 +15,16 @@ describe('Simple Appium Example', () => {
   beforeAll(async () => await driver.init(caps));
   afterAll(async () => await driver.quit());
 
-  it('finds the button', async () => {
-    expect(await driver.hasElementByName('text1')).toBe(false);
-    expect(await driver.hasElementByName('text2')).toBe(false);
+  it('should toggle state', async () => {
+    expect(await driver.hasElementByAccessibilityId('text1')).toBe(false);
+    expect(await driver.hasElementByAccessibilityId('text2')).toBe(false);
 
-    await driver.elementByName('button1').click();
-    expect(await driver.hasElementByName('text1')).toBe(true);
-    expect(await driver.hasElementByName('text2')).toBe(false);
+    await driver.elementByAccessibilityId('button1').click();
+    expect(await driver.hasElementByAccessibilityId('text1')).toBe(true);
+    expect(await driver.hasElementByAccessibilityId('text2')).toBe(false);
 
-    await driver.elementByName('button2').click();
-    expect(await driver.hasElementByName('text1')).toBe(false);
-    expect(await driver.hasElementByName('text2')).toBe(true);
+    await driver.elementByAccessibilityId('button2').click();
+    expect(await driver.hasElementByAccessibilityId('text1')).toBe(false);
+    expect(await driver.hasElementByAccessibilityId('text2')).toBe(true);
   });
 });
