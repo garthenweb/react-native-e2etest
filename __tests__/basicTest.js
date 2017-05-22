@@ -4,11 +4,17 @@ const port = 4723;
 const driver = wd.promiseChainRemote('localhost', port);
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
 
+// const caps = {
+//   platformName: 'iOS',
+//   platformVersion: '10.3',
+//   deviceName: 'iPhone Simulator',
+//   app: `${process.cwd()}/ios/build/Build/Products/Release-iphonesimulator/e2etest.app`
+// };
+
 const caps = {
-  platformName: 'iOS',
-  platformVersion: '10.3',
-  deviceName: 'iPhone Simulator',
-  app: `${process.cwd()}/ios/build/Build/Products/Release-iphonesimulator/e2etest.app`
+  platformName: 'Android',
+  deviceName: 'Android Emulator',
+  app: `${process.cwd()}/android/app/build/outputs/apk/app-debug.apk`
 };
 
 describe('Simple Appium Example', () => {
