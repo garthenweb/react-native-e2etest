@@ -11,15 +11,15 @@
 		"test:e2e:ios": "E2E_DEVICE=\"ios-emulator\"  npm run test:e2e"
 	},
 	"dependencies": {
-		"react": "16.0.0-alpha.6",
-		"react-native": "0.44.0"
+		"react": "16.3.0-alpha.1",
+		"react-native": "^0.54.0"
 	},
 	"devDependencies": {
 		"appium": "^1.6.5",
-		"babel-jest": "20.0.3",
-		"babel-preset-react-native": "1.9.2",
-		"jest": "^20.0.3",
-		"react-test-renderer": "16.0.0-alpha.6",
+		"babel-jest": "22.4.1",
+		"babel-preset-react-native": "4.0.0",
+		"jest": "^22.4.2",
+		"react-test-renderer": "16.3.0-alpha.1",
 		"wd": "^1.2.0"
 	},
 	"jest": {
