@@ -15,12 +15,12 @@
 		"react-native": "^0.54.0"
 	},
 	"devDependencies": {
-		"appium": "^1.6.5",
+		"appium": "1.7.2",
 		"babel-jest": "22.4.1",
 		"babel-preset-react-native": "4.0.0",
 		"jest": "^22.4.2",
 		"react-test-renderer": "16.3.0-alpha.1",
-		"wd": "^1.2.0"
+		"wd": "1.5.0"
 	},
 	"jest": {
 		"preset": "react-native"
