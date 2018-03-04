@@ -21,4 +21,12 @@ describe('Simple Appium Example', () => {
     expect(await driver.hasElementByAccessibilityId('text1')).toBe(false);
     expect(await driver.hasElementByAccessibilityId('text2')).toBe(true);
   });
+
+  it('should find text by scrolling', async () => {
+    expect(await driver.hasElementByAccessibilityId('text3')).toBe(false);
+    const FAST = 2;
+    await driver.flick(0, -1000, FAST)
+
+    expect(await driver.hasElementByAccessibilityId('text3')).toBe(true);
+  });
 });
